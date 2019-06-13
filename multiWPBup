@@ -1,0 +1,50 @@
+#!/bin/bash
+
+#	WordPress backup script
+#
+#	Backups ALL enabled WordPress sites
+#	Files and database for each site, saved to /archive/
+#
+#	Naming convention:	YYYYmmddHHMMSS-HOSTNAME-SERVER_NAME.tgz/sql
+#
+
+#	Create /archive directory if not exist
+if [ ! -d /archive ] ; then
+	mkdir /archive
+fi
+
+#	Get server name and path for all WordPress sites-enabled
+	source ~/multiWPBup/getWPsites.sh
+
+#	set integer for loop
+	i=0
+
+for arrayValue in "${serverName[@]}"; do
+
+#	Set dateHostDomain value
+	dateHostDomain="$dateTime-$HOSTNAME-${arrayValue}"
+
+	WP_path=${sitePaths[$i]} ;
+
+	WP_conf="$WP_path/wp-config.php" ;
+
+	WP_db=`cat $WP_conf | grep DB_NAME | cut -d \' -f 4` ;
+
+	WP_user=`cat $WP_conf | grep DB_USER | cut -d \' -f 4` ;
+
+	WP_pass=`cat $WP_conf | grep DB_PASSWORD | cut -d \' -f 4` ;
+
+	redisPW=`cat $WP_conf | grep WP_REDIS_PASSWORD | cut -d \' -f 4` ;
+
+	((i++))
+
+#	Dump WP db into archive dir
+	mysqldump -u $WP_user -p$WP_pass $WP_db > /archive/$dateHostDomain.sql 2>/dev/null
+
+#	Archive WP files into archive dir
+	tar czf /archive/$dateHostDomain.tgz $WP_path 2>/dev/null
+
+#	Remove versions older than 10 days
+	find /archive -maxdepth 1 -type f -mtime +10 -exec rm "{}" \;
+	
+done
