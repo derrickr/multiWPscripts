@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #	Get server name and path for all WordPress sites-enabled
-	source ~/multiWPBup/getWPsites.sh
+	source ~/multiWPbup/getWPsites.sh
 
 #	set integer for loop
 	i=0
