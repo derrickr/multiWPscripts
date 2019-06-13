@@ -3,7 +3,7 @@
 #export NCURSES_NO_UTF8_ACS=1
 
 #	Get server name and path for all WordPress sites-enabled
-	source ~/multiWPBup/getWPsites.sh
+	source ~/multiWPbup/getWPsites.sh
 
 #	Set variables for whiptail dialog box
 	HEIGHT=17
