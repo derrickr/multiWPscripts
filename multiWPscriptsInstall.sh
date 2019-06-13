@@ -18,13 +18,13 @@ fi
 
 #	wget the multiWPscripts from github
 #	wget https://github.com/derrickr/multiWPscripts/archive/master.zip
-	wget -O getWPconfig.sh https://github.com/derrickr/multiWPscripts/blob/master/getWPconfig.sh?raw=true
-	wget -O showWPconfig.sh https://github.com/derrickr/multiWPscripts/blob/master/showWPconfig.sh?raw=true
-	wget -O drWPbup https://github.com/derrickr/multiWPscripts/blob/master/drWPbup?raw=true
-	wget -O drWPrecovery.sh https://github.com/derrickr/multiWPscripts/blob/master/drWPrecovery.sh?raw=true
+	wget -O getWPsites.sh https://github.com/derrickr/multiWPscripts/blob/master/getWPsites.sh?raw=true
+	wget -O showWPconfigs.sh https://github.com/derrickr/multiWPscripts/blob/master/showWPconfigs.sh?raw=true
+	wget -O multiWPbup https://github.com/derrickr/multiWPscripts/blob/master/multiWPbup?raw=true
+	wget -O multiWPrecovery.sh https://github.com/derrickr/multiWPscripts/blob/master/multiWPrecovery.sh?raw=true
 
 #	Make them all exectuable
 	chmod 500 ~/multiWPscripts/*
 
 #	Move backup script into daily cron
-	mv ~/multiWPscripts/drWPbup /etc/cron.daily/drWPbup
+	mv ~/multiWPscripts/multiWPbup /etc/cron.daily/multiWPbup
