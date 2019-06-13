@@ -1,5 +1,7 @@
 **_multiWP-BupRestoreScripts_**
 
+PLEASE NOTE: These scripts are NOT intended for WP's multi mode! But rather for separate multiple WP instances.
+
 Bash scripts to acquire configuration settings, create multiple instance WP backups and restore from a choice of those backups
 
 getWPsites.sh - Gets the configuration variables from the respective wp-config.php files for all Apache or Nginx 'sites-enabled' WP instances
