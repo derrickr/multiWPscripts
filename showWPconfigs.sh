@@ -27,7 +27,7 @@ for domain in "${serverName[@]}"; do
 	echo "WP_user:    " $WP_user
 
 	WP_pass=`cat $WP_conf | grep DB_PASSWORD | cut -d \' -f 4` ;
-	echo "WP_db:      " $WP_pass
+	echo "WP_pw:      " $WP_pass
 
 	redisPW=`cat $WP_conf | grep WP_REDIS_PASSWORD | cut -d \' -f 4` ;
 	echo "redisPW:    " $redisPW
