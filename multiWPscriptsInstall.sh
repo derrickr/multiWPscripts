@@ -17,7 +17,6 @@ fi
 	cd ~/multiWPscripts/
 
 #	wget the multiWPscripts from github
-#	wget https://github.com/derrickr/multiWPscripts/archive/master.zip
 	wget -O getWPsites.sh https://github.com/derrickr/multiWPscripts/blob/master/getWPsites.sh?raw=true
 	wget -O showWPconfigs.sh https://github.com/derrickr/multiWPscripts/blob/master/showWPconfigs.sh?raw=true
 	wget -O multiWPbup https://github.com/derrickr/multiWPscripts/blob/master/multiWPbup?raw=true
